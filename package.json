@@ -1,0 +1,13 @@
+{
+  "name": "macro-index-watch",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A lightweight financial index dashboard prototype with open data sync.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://www.legulegu.com/stockdata/hs300-ttm-lyr\")",
+      "Bash(curl -s -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://image.legulegu.com/js/lg-charts-index-basic-pe.js?date=20260502\")",
+      "Bash(curl -s -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" -H \"Referer: https://www.legulegu.com/stockdata/hs300-ttm-lyr\" \"https://www.legulegu.com/api/stockdata/index-basic-pe?indexCode=000300.SH\")",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d, indent=2, ensure_ascii=False\\)[:3000]\\)\")",
+      "Bash(curl -s -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" -H \"Referer: https://www.legulegu.com/stockdata/a-ttm-lyr\" \"https://www.legulegu.com/api/stockdata/index-basic-pe?indexCode=000985.SH\")",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('Keys:', list\\(d.keys\\(\\)\\) if isinstance\\(d, dict\\) else 'is list'\\); print\\('Length:', len\\(d.get\\('data', d\\)\\) if isinstance\\(d, dict\\) else len\\(d\\)\\); print\\(json.dumps\\(d, indent=2, ensure_ascii=False\\)[:2000]\\)\")",
+      "Bash(curl -s -w \"\\\\nHTTP_CODE:%{http_code}\" -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" -H \"Referer: https://www.legulegu.com/stockdata/hs300-ttm-lyr\" -H \"X-CSRF-TOKEN: 6d8cdb29-9074-41e6-be98-641e7f3f3ca8\" \"https://www.legulegu.com/api/stockdata/index-basic-pe?indexCode=000300.SH\")",
+      "Bash(curl -s -c /tmp/legu_cookies.txt -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://www.legulegu.com/stockdata/hs300-ttm-lyr\")",
+      "Bash(curl -s -b /tmp/legu_cookies.txt -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" -H \"Referer: https://www.legulegu.com/stockdata/hs300-ttm-lyr\" -H \"X-CSRF-TOKEN: 23278694-42ff-4fc7-b7f9-9156209bcd9d\" \"https://www.legulegu.com/stockdata/hs300-ttm-lyr\")",
+      "Bash(curl -s -b /tmp/legu_cookies.txt -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://www.legulegu.com/stockdata/hs300-ttm-lyr\")",
+      "WebSearch",
+      "Bash(curl -s \"https://datacenter-web.eastmoney.com/api/data/v1/get?reportName=RPT_INDEX_VALUATION&sortColumns=TRADE_DATE&sortTypes=-1&pageSize=5&pageNumber=1&filter=\\(INDEX_CODE=%22000300%22\\)\")",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d, indent=2, ensure_ascii=False\\)[:2000]\\)\")",
+      "Bash(curl -s \"https://datacenter-web.eastmoney.com/api/data/v1/get?reportName=RPT_INDEX_VALUATION&columns=ALL&sortColumns=TRADE_DATE&sortTypes=-1&pageSize=3&pageNumber=1&filter=\\(INDEX_CODE=%22000300%22\\)\")",
+      "WebFetch(domain:deepwiki.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -s \"https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=1.000300&klt=101&fqt=0&lmt=3&fields1=f1,f2,f3,f4,f5,f6&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61,f116,f117,f118,f119,f120,f121,f122,f123,f124,f125,f126,f127,f128,f129,f130\")",
+      "Bash(python -c ' *)",
+      "Bash(curl -s \"https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=1.000300&klt=101&fqt=0&lmt=3&fields1=f1,f2,f3,f4,f5,f6&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61\")",
+      "Bash(curl -s \"https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=1.000300&klt=101&fqt=1&lmt=3&fields1=f1,f2,f3,f4,f5,f6&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61&ut=b2884a393a59ad64002292a3e90d46a5\")",
+      "Bash(where python3 *)",
+      "Bash(py -3 --version)",
+      "Bash(py -3.9 --version)",
+      "Bash(py -3.10 --version)",
+      "Bash(py -3.11 --version)",
+      "WebFetch(domain:www.csindex.com.cn)",
+      "Bash(winget search *)",
+      "Bash(winget install *)"
+    ]
+  }
+}

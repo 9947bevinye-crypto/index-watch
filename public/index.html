@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>指数观察</title>
+    <link rel="stylesheet" href="/styles.css?v=22" />
+  </head>
+  <body>
+    <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+    <aside class="drawer" id="indexDrawer" aria-label="指数列表" aria-hidden="true" inert>
+      <div class="drawer-header">
+        <div>
+          <p class="eyebrow">Index Watch</p>
+          <h2>选择指数</h2>
+        </div>
+        <button class="drawer-close" id="drawerCloseButton" type="button" aria-label="关闭指数列表" title="关闭指数列表">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+
+      <nav class="chart-nav" id="chartNav" aria-label="图表导航">
+        <div class="skeleton-line"></div>
+        <div class="skeleton-line short"></div>
+      </nav>
+    </aside>
+
+    <div class="app-shell">
+      <header class="app-header">
+        <button class="menu-button" id="menuButton" type="button" aria-label="打开指数列表" title="打开指数列表">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+        <h1 id="pageTitle">S&P 500 与 VIX 风险观察</h1>
+      </header>
+
+      <main class="workspace">
+        <section class="chart-panel" aria-label="指数走势图">
+          <div class="chart-toolbar" aria-label="曲线开关">
+            <label class="toggle">
+              <input type="checkbox" data-series="spx" checked />
+              <span class="swatch spx"></span>
+              <span>S&P 500</span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" data-series="vix" checked />
+              <span class="swatch vix"></span>
+              <span>VIX</span>
+            </label>
+          </div>
+
+          <div class="chart-wrap">
+            <canvas id="mainChart" width="1280" height="560" aria-label="S&P 500 与 VIX 双轴走势图"></canvas>
+            <div class="tooltip" id="chartTooltip" hidden></div>
+            <button class="chart-fullscreen-btn" id="fullscreenBtn" type="button" aria-label="全屏查看图表" title="全屏查看图表" onclick="var c=document.getElementById('mainChart');var r=c.requestFullscreen||c.webkitRequestFullscreen;if(r)r.call(c)">⛶</button>
+          </div>
+
+          <div class="chart-footer">
+            <div class="range-tabs" id="rangeTabs" role="tablist" aria-label="时间范围">
+              <button type="button" data-range="1m">1月</button>
+              <button type="button" data-range="3m">3月</button>
+              <button type="button" data-range="6m">6月</button>
+              <button type="button" class="active" data-range="1y">1年</button>
+              <button type="button" data-range="2y">2年</button>
+              <button type="button" data-range="5y">5年</button>
+              <button type="button" data-range="all">全部</button>
+            </div>
+            <div class="chart-meta">
+              <span id="sourceText">数据来源：加载中</span>
+              <span id="latestDate">最新日期：--</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="status-strip" id="statusStrip" role="status">
+          <span class="status-dot pending" aria-hidden="true"></span>
+          <span>正在检查最新数据...</span>
+        </section>
+
+        <section class="summary-grid" id="summaryGrid" aria-label="指数摘要"></section>
+      </main>
+
+      <button class="floating-refresh" id="refreshButton" type="button" aria-label="刷新数据" title="刷新数据">
+        <span aria-hidden="true">↻</span>
+      </button>
+    </div>
+
+    <script src="/app.js?v=21" type="module"></script>
+  </body>
+</html>

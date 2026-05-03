@@ -1,0 +1,14 @@
+node_modules/
+data/cache/
+.venv/
+__pycache__/
+.env
+.env.local
+dist/
+desktop.png
+mobile*.png
+server.out.log
+server.err.log
+edge-profile-check*/
+android/
+.DS_Store
