@@ -104,6 +104,16 @@ function bindEvents() {
     elements.tooltip.hidden = true;
   });
   window.addEventListener("resize", drawChart);
+  document.addEventListener("fullscreenchange", () => {
+    const btn = document.querySelector("#fullscreenBtn");
+    if (!document.fullscreenElement && btn) btn.textContent = "⛶";
+    setTimeout(drawChart, 150);
+  });
+  document.addEventListener("webkitfullscreenchange", () => {
+    const btn = document.querySelector("#fullscreenBtn");
+    if (!document.webkitFullscreenElement && btn) btn.textContent = "⛶";
+    setTimeout(drawChart, 150);
+  });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       if (document.fullscreenElement) {
@@ -441,18 +451,21 @@ function drawAxes(ctx, plot, leftSeries, leftScale, rightSeries, rightScale, dat
 
 async function toggleFullscreen() {
   const el = elements.canvas;
+  const btn = document.querySelector("#fullscreenBtn");
   if (!document.fullscreenElement) {
     try {
       await el.requestFullscreen();
       if (screen.orientation && screen.orientation.lock) {
         try { await screen.orientation.lock("landscape"); } catch {}
       }
+      if (btn) btn.textContent = "✕ 退出";
     } catch {}
   } else {
     if (screen.orientation && screen.orientation.unlock) {
       screen.orientation.unlock();
     }
     document.exitFullscreen();
+    if (btn) btn.textContent = "⛶";
   }
 }
 
