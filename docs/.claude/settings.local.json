@@ -28,7 +28,9 @@
       "Bash(py -3.11 --version)",
       "WebFetch(domain:www.csindex.com.cn)",
       "Bash(winget search *)",
-      "Bash(winget install *)"
+      "Bash(winget install *)",
+      "Bash(curl -s \"https://9947bevinye-crypto.github.io/index-watch/spx-vix.json\")",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('spx-vix:', len\\(d.get\\('data',[]\\)\\), 'rows'\\); print\\('sample:', d['data'][-1] if d.get\\('data'\\) else 'N/A'\\)\")"
     ]
   }
 }

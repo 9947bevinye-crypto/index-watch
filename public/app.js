@@ -225,6 +225,14 @@ function renderActiveChart() {
   const { chart, data, sources, latestDate } = state.payload;
   state.visibleData = filterByRange(data, state.activeRange);
 
+  // Remove data points with invalid (zero/negative) values
+  if (state.chartConfig && state.chartConfig.series) {
+    const keys = state.chartConfig.series.map((s) => s.key);
+    state.visibleData = state.visibleData.filter((p) =>
+      keys.every((k) => p[k] > 0)
+    );
+  }
+
   elements.pageTitle.textContent = chart.title;
   elements.sourceText.textContent = `数据来源：${(sources || []).map((s) => s.name).join(" / ") || chart.sourceNames.join(" / ")}`;
   elements.latestDate.textContent = `最新日期：${formatDate(latestDate)}`;
