@@ -21,9 +21,16 @@ def now_iso():
 
 def fetch_fred_csv(series_id):
     url = f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={series_id}"
-    resp = requests.get(url, headers={"User-Agent": FRED_USER_AGENT}, timeout=30)
-    resp.raise_for_status()
-    return resp.text
+    for attempt in range(3):
+        try:
+            resp = requests.get(url, headers={"User-Agent": FRED_USER_AGENT}, timeout=60)
+            resp.raise_for_status()
+            return resp.text
+        except requests.RequestException:
+            if attempt == 2:
+                raise
+            import time
+            time.sleep(5)
 
 
 def parse_fred_csv(csv_text):
