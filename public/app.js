@@ -489,7 +489,11 @@ function handleChartHover(event) {
 }
 
 function clearCanvas(w, h) {
-  context.clearRect(0, 0, w || elements.canvas.clientWidth, h || elements.canvas.clientHeight);
+  const cw = w || elements.canvas.clientWidth;
+  const ch = h || elements.canvas.clientHeight;
+  context.clearRect(0, 0, cw, ch);
+  context.fillStyle = "#ffffff";
+  context.fillRect(0, 0, cw, ch);
 }
 
 function createScale(values, yBottom, yTop) {
