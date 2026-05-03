@@ -439,6 +439,23 @@ function drawAxes(ctx, plot, leftSeries, leftScale, rightSeries, rightScale, dat
   ctx.restore();
 }
 
+async function toggleFullscreen() {
+  const el = elements.canvas;
+  if (!document.fullscreenElement) {
+    try {
+      await el.requestFullscreen();
+      if (screen.orientation && screen.orientation.lock) {
+        try { await screen.orientation.lock("landscape"); } catch {}
+      }
+    } catch {}
+  } else {
+    if (screen.orientation && screen.orientation.unlock) {
+      screen.orientation.unlock();
+    }
+    document.exitFullscreen();
+  }
+}
+
 function drawReferenceLine(ctx, plot, y, color, label) {
   ctx.save();
   ctx.strokeStyle = color;
