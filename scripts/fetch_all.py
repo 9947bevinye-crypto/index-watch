@@ -146,17 +146,11 @@ def fetch_hs300():
 # ── Main ───────────────────────────────────────────────────────
 
 def main():
-    print("Fetching SPX+VIX from FRED...")
-    spx_vix = fetch_spx_vix()
-    path1 = CACHE_DIR / "spx-vix.json"
-    path1.write_text(json.dumps(spx_vix, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"  -> {path1}  ({len(spx_vix['data'])} rows, latest={spx_vix['latestDate']})")
-
     print("Fetching HS300 valuation...")
     hs300 = fetch_hs300()
-    path2 = CACHE_DIR / "hs300-valuation.json"
-    path2.write_text(json.dumps(hs300, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"  -> {path2}  ({len(hs300['data'])} rows, latest={hs300['latestDate']})")
+    path = CACHE_DIR / "hs300-valuation.json"
+    path.write_text(json.dumps(hs300, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"  -> {path}  ({len(hs300['data'])} rows, latest={hs300['latestDate']})")
     pp = hs300["pePercentiles"]
     print(f"  PE danger={pp['danger']} median={pp['median']} opportunity={pp['opportunity']}")
 
