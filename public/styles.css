@@ -36,6 +36,8 @@ input {
 
 button {
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
 .app-shell {
@@ -274,12 +276,15 @@ h3 {
   inset: auto 1.25rem 1.25rem auto;
   width: 5rem;
   height: 5rem;
-  border-color: rgba(255, 255, 255, 0.18);
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   background: #17212b;
   color: #ffffff;
   font-size: 2rem;
   box-shadow: 0 0.75rem 1.75rem rgba(22, 32, 42, 0.18);
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  -webkit-appearance: none;
 }
 
 .chart-fullscreen-btn {
@@ -557,6 +562,7 @@ canvas {
     inset: auto 1rem 1rem auto;
     width: 4.5rem;
     height: 4.5rem;
+    border-width: 2.5px;
   }
 
   .chart-wrap {

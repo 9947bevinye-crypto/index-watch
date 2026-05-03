@@ -79,7 +79,7 @@ async function init() {
 }
 
 function bindEvents() {
-  elements.refreshButton.addEventListener("click", () => loadActiveChart());
+  elements.refreshButton.addEventListener("click", () => loadActiveChart(true));
   elements.menuButton.addEventListener("click", openDrawer);
   elements.drawerCloseButton.addEventListener("click", closeDrawer);
   elements.drawerBackdrop.addEventListener("click", closeDrawer);
@@ -136,12 +136,14 @@ function setCached(chartId, data) {
   }
 }
 
-async function fetchChartData(chartId) {
+async function fetchChartData(chartId, forceRefresh) {
   const config = chartCatalog.find((c) => c.id === chartId);
   if (!config) throw new Error("Unknown chart: " + chartId);
 
-  const cached = getCached(chartId);
-  if (cached) return { ...cached, cache: { status: "fresh" } };
+  if (!forceRefresh) {
+    const cached = getCached(chartId);
+    if (cached) return { ...cached, cache: { status: "fresh" } };
+  }
 
   const url = `${DATA_BASE}/${config.dataFile}`;
   const response = await fetch(url);
@@ -152,11 +154,11 @@ async function fetchChartData(chartId) {
   return data;
 }
 
-async function loadActiveChart() {
-  setStatus("pending", "正在检查最新数据...");
+async function loadActiveChart(forceRefresh) {
+  setStatus("pending", forceRefresh ? "正在联网更新..." : "正在检查最新数据...");
 
   try {
-    const payload = await fetchChartData(state.activeChartId);
+    const payload = await fetchChartData(state.activeChartId, forceRefresh);
     setChartConfig();
     state.payload = payload;
     renderActiveChart();
@@ -340,10 +342,10 @@ function drawChart() {
   const rightSeries = config.series.find((s) => s.axis === "right");
 
   const leftScale = leftSeries
-    ? createScale(data.map((p) => p[leftSeries.key]), plot.y + plot.height, plot.y)
+    ? createScale(data.map((p) => p[leftSeries.key]).filter((v) => v > 0), plot.y + plot.height, plot.y)
     : null;
   const rightScale = rightSeries
-    ? createScale(data.map((p) => p[rightSeries.key]), plot.y + plot.height, plot.y)
+    ? createScale(data.map((p) => p[rightSeries.key]).filter((v) => v > 0), plot.y + plot.height, plot.y)
     : null;
 
   const xScale = (index) => plot.x + (index / Math.max(1, data.length - 1)) * plot.width;
