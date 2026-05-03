@@ -33,6 +33,15 @@
 
 Web 原型技术选型：Node.js 原生 HTTP + 原生 HTML/CSS/JS，界面要能在浏览器直接看到。
 
-## 5. 安装依赖优先安装到E盘
+## 5. 项目信息
+
+- 项目名称：指数观察 APP
+- 项目位置：`D:\开发项目\指数观察`
+- 本地访问：`http://localhost:4173`
+- 启动方式：`npm start`
+- 数据源：FRED（S&P 500 / VIX）、AKShare/Python（沪深300 PE）
+- GitHub Pages：`https://9947bevinye-crypto.github.io/index-watch/`
+
+## 6. 安装依赖优先安装到E盘
 
 项目执行过程中如缺少依赖阻碍流程要安装某些大型文件，优先安装到E盘，并以文件名新建文件夹命名的同时新增后缀_claude。如必须安装到C盘方可运行则安装到C盘。
