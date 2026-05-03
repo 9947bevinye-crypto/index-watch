@@ -23,7 +23,7 @@
 当前项目目录：
 
 ```text
-C:\Users\YM\Documents\Codex\2026-05-03\app-app-app-https-www-macromicro
+D:\开发项目\指数观察
 ```
 
 本地访问地址：
@@ -38,13 +38,34 @@ http://localhost:4173
 npm start
 ```
 
+APK 构建：
+
+```bash
+npx cap sync android && cd android && ./gradlew assembleDebug
+```
+
+APK 文件：`android/app/build/outputs/apk/debug/app-debug.apk`
+
 当前技术栈：
 
 - Node.js 内置 `http` 服务
 - 原生 HTML / CSS / JavaScript
 - Canvas 自绘双轴走势图
 - 本地 JSON 缓存
-- 暂未引入 React、Vue、ECharts、数据库或构建工具
+- Capacitor 打包 APK
+- GitHub Actions 每日自动更新 PE 数据
+- GitHub Pages 托管数据 JSON
+- 暂未引入 React、Vue、ECharts、数据库
+
+## 项目当前状态（2026-05-03）
+
+- ✅ S&P 500 + VIX 风险观察（FRED 数据源）
+- ✅ 沪深300 估值观察（AKShare 数据源，PE 分位线）
+- ✅ Web 原型（localhost:4173 浏览器访问）
+- ✅ APK 打包（Capacitor，安卓安装包）
+- ✅ GitHub Actions 每日自动更新 HS300 PE 数据
+- ✅ GitHub Pages 托管数据文件
+- ✅ 手机端全屏横屏查看图表
 
 ## 产品目标
 
