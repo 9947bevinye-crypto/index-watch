@@ -25839,10 +25839,15 @@
       "date": "2026-07-14",
       "index": 4796.5,
       "pe": 13.75
+    },
+    {
+      "date": "2026-07-15",
+      "index": 4786.78,
+      "pe": 13.77
     }
   ],
-  "syncedAt": "2026-07-14T23:26:29.865268+00:00",
-  "latestDate": "2026-07-14",
+  "syncedAt": "2026-07-15T23:31:21.601340+00:00",
+  "latestDate": "2026-07-15",
   "sourceStatus": "live",
   "sources": [
     {
@@ -25852,7 +25857,7 @@
   ],
   "pePercentiles": {
     "danger": 14.01,
-    "median": 12.57,
+    "median": 12.58,
     "opportunity": 11.46
   }
 }
