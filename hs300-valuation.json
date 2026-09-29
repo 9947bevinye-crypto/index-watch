@@ -1296,13 +1296,13 @@
       "pe": 13.04
     },
     {
-      "date": "2026-09-24",
-      "index": 4439.14,
-      "pe": 12.59
+      "date": "2026-09-28",
+      "index": 4340.76,
+      "pe": 12.44
     }
   ],
-  "syncedAt": "2026-09-28T01:04:29.892240+00:00",
-  "latestDate": "2026-09-24",
+  "syncedAt": "2026-09-29T02:13:07.763325+00:00",
+  "latestDate": "2026-09-28",
   "sourceStatus": "live",
   "sources": [
     {
@@ -1312,7 +1312,7 @@
   ],
   "pePercentiles": {
     "danger": 13.88,
-    "median": 12.57,
+    "median": 12.55,
     "opportunity": 11.47
   }
 }
